@@ -38,6 +38,6 @@ jobs:
       run: npm install --global surge
 
     - name: Deploy to Surge
-      run: surge ./build covid19-trackerapp-surge.sh --token ${{ secrets.PROJECT001_SURGE_TOKEN}}
+      run: surge ./build covid19-trackingapp.surge.sh --token ${{ secrets.PROJECT001_SURGE_TOKEN}}
 
 ...
