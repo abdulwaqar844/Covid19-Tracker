@@ -79,14 +79,14 @@ export default function NavBar() {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
+            COVID19 Tracker App by Abdul Waqar
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder="Search Country…"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
