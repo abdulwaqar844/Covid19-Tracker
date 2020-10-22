@@ -27,8 +27,7 @@ export default function FullWidthGrid() {
             let data = await response.json();
             delete data.results[0].source;
             setglobalData(data.results[0]);
-            console.log(data.results[0]);
-        }
+                }
         getData()
     }, [])
     const classes = useStyles();
