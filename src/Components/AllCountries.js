@@ -33,7 +33,6 @@ export default function AllCountries() {
             const response = await fetch("https://api.thevirustracker.com/free-api?countryTotals=ALL")
             let data = await response.json();
             setglobalData(Object.values(Object.values(data.countryitems[0])));
-            console.log(Object.values(Object.values(data.countryitems[0])))
 
 
 

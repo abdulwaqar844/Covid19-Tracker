@@ -1,7 +1,5 @@
 import React,{useState,useEffect} from 'react';
 import {Pie} from 'react-chartjs-2';
-
-
 export default function PieChart() {
     const [globalData, setglobalData] = useState({});
     useEffect(() => {
@@ -9,7 +7,6 @@ export default function PieChart() {
             const response = await fetch("https://api.thevirustracker.com/free-api?global=stats")
             let data = await response.json();
             setglobalData(data.results[0]);
-            console.log(data.results[0])
         }
         getData()
     }, [])
@@ -36,7 +33,7 @@ const data = {
 };
     return (
         <div>
-          <h2>Pie Example</h2>
+          <h2>COVID CASES</h2>
           <Pie data={data} />
         </div>
       );}
