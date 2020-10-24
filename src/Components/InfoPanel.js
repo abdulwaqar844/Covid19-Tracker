@@ -1,7 +1,7 @@
 import React  from 'react';
 import GlobalStats from "./GlobalStats";
 import AllCountries from "./AllCountries"
-import {GraphChart} from "./Graph"
+import PieChart from "./Graph"
 
 export default function InfoPanel({currentScreen}) {
    if(currentScreen===0)
@@ -9,7 +9,7 @@ export default function InfoPanel({currentScreen}) {
    else if(currentScreen===1)
    return <AllCountries />
    else if(currentScreen=== 2)
-   return <GraphChart />
+   return <PieChart />
    else
    return <GlobalStats />
 
