@@ -4,13 +4,16 @@ export default function PieChart() {
     const [globalData, setglobalData] = useState({});
     useEffect(() => {
         async function getData() {
-            const response = await fetch("https://api.thevirustracker.com/free-api?global=stats")
-            let data = await response.json();
-            setglobalData(data.results[0]);
+			const response = await fetch("https://api.covid19api.com/summary")
+			let data = await response.json();
+			let Global =data.Global;
+			console.log(data)
+			setglobalData(Global)
+			//setglobalData(Object.values(Object.values(data)));
+            console.log(Global.NewConfirmed)
         }
         getData()
     }, [])
-    
 const data = {
 	labels: [
 		'Total Active Cases',
@@ -18,7 +21,7 @@ const data = {
 		'Total Deaths'
 	],
 	datasets: [{
-		data: [globalData.total_active_cases, globalData.total_recovered, globalData.total_deaths],
+		data: [globalData.TotalConfirmed, globalData.TotalRecovered, globalData.TotalDeaths],
 		backgroundColor: [
 		'#FF6384',
 		'#36A2EB',

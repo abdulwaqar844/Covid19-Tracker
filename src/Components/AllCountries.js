@@ -19,11 +19,13 @@ export default function AllCountries() {
     const [globalData, setglobalData] = useState([{}]);
     useEffect(() => {
         async function getData() {
-            const response = await fetch("https://api.thevirustracker.com/free-api?countryTotals=ALL")
-            let data = await response.json();
-            setglobalData(Object.values(Object.values(data.countryitems[0])));
-
-
+            const response = await fetch("https://api.covid19api.com/summary")
+			let data = await response.json();
+			let Country =data.Countries;
+			console.log(Country)
+			setglobalData(Country)
+			//setglobalData(Object.values(Object.values(data)));
+            console.log("Tested")
 
         }
         getData()
@@ -36,10 +38,7 @@ export default function AllCountries() {
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Serial No</TableCell>
-
                         <TableCell>Country</TableCell>
-                        <TableCell align="right">Active Cases</TableCell>
                         <TableCell align="right">Total Cases</TableCell>
                         <TableCell align="right">Total Death</TableCell>
                         <TableCell align="right">Total Recoved</TableCell>
@@ -48,13 +47,10 @@ export default function AllCountries() {
                 <TableBody>
                     {globalData.map((key, ind) => (
                         <TableRow key={ind}>
-                            <TableCell component="th" scope="row">{globalData[ind].ourid}</TableCell>
-                            <TableCell component="th" scope="row">{globalData[ind].title}</TableCell>
-                            <TableCell align="right">{globalData[ind].total_active_cases}</TableCell>
-                            <TableCell align="right">{globalData[ind].total_cases}</TableCell>
-                            <TableCell align="right">{globalData[ind].total_deaths}</TableCell>
-                            <TableCell align="right">{globalData[ind].total_recovered}</TableCell>
-
+                            <TableCell component="th" scope="row">{globalData[ind].Country}</TableCell>
+                            <TableCell align="right">{globalData[ind].TotalConfirmed}</TableCell>
+                            <TableCell align="right">{globalData[ind].TotalDeaths}</TableCell>
+                            <TableCell align="right">{globalData[ind].TotalRecovered}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.text.secondary,
     }, title: {
         color: "#3F51B5",
-        textTransform: "uppercase"
     }
 }));
 
@@ -23,16 +22,15 @@ export default function GlobalStats() {
     const [globalData, setglobalData] = useState({});
     useEffect(() => {
         async function getData() {
-            const response = await fetch("https://api.thevirustracker.com/free-api?global=stats")
-            let data = await response.json();
-            delete data.results[0].source;
-            setglobalData(data.results[0]);
+            const response = await fetch("https://api.covid19api.com/summary")
+			let data = await response.json();
+			let Global =data.Global;
+			console.log(data)
+			setglobalData(Global)
         }
         getData()
     }, [])
     const classes = useStyles();
-
-
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
